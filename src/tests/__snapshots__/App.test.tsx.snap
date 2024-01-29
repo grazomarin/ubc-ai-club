@@ -1,0 +1,66 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Root > renders home page 1`] = `
+<div>
+  <div
+    id="sidebar"
+  >
+    <h1>
+      React Router Contacts
+    </h1>
+    <div>
+      <form
+        id="search-form"
+        role="search"
+      >
+        <input
+          aria-label="Search contacts"
+          id="q"
+          name="q"
+          placeholder="Search"
+          type="search"
+        />
+        <div
+          aria-hidden="true"
+          hidden=""
+          id="search-spinner"
+        />
+        <div
+          aria-live="polite"
+          class="sr-only"
+        />
+      </form>
+      <form
+        method="post"
+      >
+        <button
+          type="submit"
+        >
+          New
+        </button>
+      </form>
+    </div>
+    <nav>
+      <ul>
+        <li>
+          <a
+            href="/contacts/1"
+          >
+            Your Name
+          </a>
+        </li>
+        <li>
+          <a
+            href="/contacts/2"
+          >
+            Your Friend
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+  <div
+    id="detail"
+  />
+</div>
+`;
