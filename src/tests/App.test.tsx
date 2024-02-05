@@ -1,6 +1,6 @@
 import '@testing-library/jest-dom';
-import { render, screen } from '@testing-library/react';
-import Root from '../routes/root';
+import { render } from '@testing-library/react';
+import Root from '../routes/Root';
 
 describe('Root', () => {
 	it('renders home page', () => {
