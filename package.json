@@ -3,14 +3,14 @@
 	"private": true,
 	"version": "0.0.0",
 	"type": "module",
+	"homepage": "https://grazomarin.github.io/ubc-ai-club",
 	"scripts": {
 		"dev": "vite",
 		"build": "tsc && vite build",
 		"lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
 		"preview": "vite preview",
 		"test": "vitest",
-		"predeploy": "npm run build",
-		"deploy": "gh-pages -d dist"
+		"deploy": "vite build && gh-pages -d dist"
 	},
 	"dependencies": {
 		"@chakra-ui/react": "^2.8.2",
