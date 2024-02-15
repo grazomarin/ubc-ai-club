@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { createHashRouter, RouterProvider } from 'react-router-dom';
-import Root from './routes/Root';
+import { HashRouter } from 'react-router-dom';
 import { ChakraProvider } from '@chakra-ui/react';
+import App from './App';
 
 export const theme = {
 	colors: {
@@ -18,20 +18,12 @@ export const theme = {
 	},
 };
 
-const router = createHashRouter([
-	{
-		path: '/',
-		element: <Root />,
-	},
-	{
-		path: '/about',
-	},
-]);
-
 ReactDOM.createRoot(document.getElementById('root')!).render(
 	<React.StrictMode>
 		<ChakraProvider resetCSS={true}>
-			<RouterProvider router={router} />
+			<HashRouter>
+				<App />
+			</HashRouter>
 		</ChakraProvider>
 	</React.StrictMode>
 );

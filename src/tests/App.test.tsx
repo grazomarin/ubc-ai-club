@@ -1,6 +1,6 @@
 import '@testing-library/jest-dom';
 import { render } from '@testing-library/react';
-import Root from '../routes/Root';
+import Root from '../pages/Root';
 
 describe('Root', () => {
 	it('renders home page', () => {

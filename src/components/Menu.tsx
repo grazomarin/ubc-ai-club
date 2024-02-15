@@ -10,11 +10,34 @@ import {
 import Hamburger from 'hamburger-react';
 import uniqid from 'uniqid';
 import { theme } from '../main';
+import { Link } from 'react-router-dom';
 
 export default function Menu() {
 	const { isOpen, onOpen, onClose } = useDisclosure();
 	const btnRef = useRef(null);
 	const [activeText, setActiveText] = useState('');
+	const navigation = [
+		{
+			title: 'Home',
+			destination: '/',
+		},
+		{
+			title: 'About',
+			destination: '/about',
+		},
+		{
+			title: 'Events',
+			destination: '/events',
+		},
+		{
+			title: 'Projects',
+			destination: '/projects',
+		},
+		{
+			title: 'Contact Us',
+			destination: '/contact',
+		},
+	];
 
 	return (
 		<>
@@ -41,20 +64,27 @@ export default function Menu() {
 					opacity={0.85}
 					bgColor={theme.colors.pink.custom}
 				>
-					{['Home', 'About', 'Events', 'Projects', 'Contact Us'].map((text) => {
+					{navigation.map(({ title, destination }) => {
 						return (
 							<Box
+								as={Link}
+								to={destination}
 								display='flex'
 								key={uniqid()}
 								flex={1}
 								alignItems='center'
 								bgColor={
-									activeText === text ? theme.colors.blue.custom : 'transparent'
+									activeText === title
+										? theme.colors.blue.custom
+										: 'transparent'
 								}
-								onClick={() => setActiveText(text)}
+								onClick={() => {
+									setActiveText(title);
+									onClose();
+								}}
 							>
 								<Heading color='white' fontSize='2.7rem' px='2rem'>
-									{text}
+									{title}
 								</Heading>
 							</Box>
 						);

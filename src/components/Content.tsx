@@ -3,7 +3,7 @@ import { theme } from '../main';
 
 export default function Content() {
 	return (
-		<Box display='flex' flexFlow='column' textColor='white' gap='1.5rem'>
+		<Box display='flex' flexFlow='column' textColor='white' gap='1.5em'>
 			<Box>
 				<Heading>Workshops</Heading>
 				<Text>
