@@ -14,15 +14,16 @@
 	},
 	"dependencies": {
 		"@chakra-ui/react": "^2.8.2",
-		"@emotion/react": "^11.11.3",
-		"@emotion/styled": "^11.11.0",
 		"@types/react-router-dom": "^5.3.3",
 		"framer-motion": "^11.0.3",
 		"hamburger-react": "^2.5.0",
 		"react": "^18.2.0",
+		"react-chrono": "^2.4.2",
 		"react-dom": "^18.2.0",
 		"react-icons": "^5.0.1",
-		"uniqid": "^5.4.0"
+		"react-swipeable": "^7.0.1",
+		"uniqid": "^5.4.0",
+		"webfontloader": "^1.6.28"
 	},
 	"devDependencies": {
 		"@testing-library/jest-dom": "^6.3.0",

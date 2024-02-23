@@ -7,14 +7,20 @@ import App from './App';
 export const theme = {
 	colors: {
 		blue: {
-			custom: '#000b39',
+			main: '#000b39',
+			light: '#001f6d',
 		},
 		pink: {
-			custom: '#9a0081',
+			main: '#9a0081',
+			light: '#c700a8',
 		},
 	},
 	sizes: {
 		default: '2rem',
+	},
+	fonts: {
+		code: 'JetBrains Mono',
+		pixel: 'Silkscreen',
 	},
 };
 

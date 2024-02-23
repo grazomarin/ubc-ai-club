@@ -18,33 +18,45 @@ export default function Menu() {
 	const [activeText, setActiveText] = useState('');
 	const navigation = [
 		{
-			title: 'Home',
+			title: '<Home />',
 			destination: '/',
 		},
 		{
-			title: 'About',
+			title: '<About />',
 			destination: '/about',
 		},
 		{
-			title: 'Events',
+			title: '<Events />',
 			destination: '/events',
 		},
 		{
-			title: 'Projects',
+			title: '<Projects />',
 			destination: '/projects',
 		},
 		{
-			title: 'Contact Us',
+			title: '<Contact Us />',
 			destination: '/contact',
 		},
 	];
 
 	return (
 		<>
-			<Box zIndex={1401} ref={btnRef}>
+			<Box
+				zIndex={1401}
+				ref={btnRef}
+				backgroundColor='blue.800'
+				// rounded='16px'
+				boxShadow='0px 5px 0px 0px #1a202c'
+				position='relative'
+				_active={{
+					boxShadow: '0px 0px 0px 0px #1a202c',
+
+					top: '5px',
+				}}
+			>
 				<Hamburger
 					color='white'
-					rounded
+					// rounded
 					toggled={isOpen}
 					toggle={() => (isOpen ? onClose() : onOpen())}
 				/>
@@ -62,7 +74,7 @@ export default function Menu() {
 					flexFlow='column'
 					height='100%'
 					opacity={0.85}
-					bgColor={theme.colors.pink.custom}
+					bgColor={theme.colors.pink.main}
 				>
 					{navigation.map(({ title, destination }) => {
 						return (
@@ -74,16 +86,19 @@ export default function Menu() {
 								flex={1}
 								alignItems='center'
 								bgColor={
-									activeText === title
-										? theme.colors.blue.custom
-										: 'transparent'
+									activeText === title ? theme.colors.blue.main : 'transparent'
 								}
 								onClick={() => {
 									setActiveText(title);
 									onClose();
 								}}
 							>
-								<Heading color='white' fontSize='2.7rem' px='2rem'>
+								<Heading
+									color='white'
+									width='100%'
+									px='2rem'
+									fontFamily={theme.fonts.pixel}
+								>
 									{title}
 								</Heading>
 							</Box>

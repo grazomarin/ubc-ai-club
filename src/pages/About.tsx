@@ -1,5 +1,5 @@
 import { Box, Image, Heading, Text } from '@chakra-ui/react';
-import aiHandSquare from '../assets/ai-hand-square.jpg';
+import vrImage from '../assets/vr-image-square.jpg';
 import blankProfilePicture from '../assets/blank-profile-picture.png';
 import { theme } from './../main';
 import uniqid from 'uniqid';
@@ -20,18 +20,18 @@ export default function About() {
 
 	return (
 		<Box color='white' display='flex' flexFlow='column' gap='2rem'>
-			<Heading textAlign='center' size='2xl'>
+			<Heading textAlign='center' size='2xl' fontFamily={theme.fonts.pixel}>
 				About Us
 				<Box
 					p='1px'
-					backgroundColor={theme.colors.pink.custom}
+					backgroundColor={theme.colors.pink.main}
 					rounded='20px'
 					marginTop='.5rem'
 				/>
 			</Heading>
 			<Box display='flex' justifyContent='center' width='100%'>
 				<Image
-					src={aiHandSquare}
+					src={vrImage}
 					objectFit='cover'
 					borderRadius='full'
 					maxWidth='500px'
@@ -59,7 +59,7 @@ export default function About() {
 				Meet The Team
 				<Box
 					p='1px'
-					backgroundColor={theme.colors.pink.custom}
+					backgroundColor={theme.colors.pink.main}
 					rounded='20px'
 					marginTop='.5rem'
 				/>
