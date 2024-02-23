@@ -21,8 +21,6 @@ export default function Navbar() {
 				height='70px'
 				backgroundImage={`radial-gradient(rgba(0,0,0,0) 1px, ${theme.colors.pink.main} 1px)`}
 				backgroundSize='4px 4px'
-				backdropFilter='blur(3px)'
-				backdropBlur='3px'
 			>
 				<Heading color='White' fontSize='2rem' fontFamily={theme.fonts.pixel}>
 					UBC AI CLUB

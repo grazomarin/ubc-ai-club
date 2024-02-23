@@ -8,31 +8,32 @@ import {
 } from '@chakra-ui/react';
 import uniqid from 'uniqid';
 import { theme } from '../main';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 // @ts-expect-error - no ts types for these
 export default function Menu({ isOpen, onClose }) {
-	const [activeText, setActiveText] = useState('<Home />');
+	const { pathname } = useLocation();
+	const [activePath, setActiveText] = useState(pathname);
 	const navigation = [
 		{
 			title: '<Home />',
-			destination: '/',
+			path: '/',
 		},
 		{
 			title: '<About />',
-			destination: '/about',
+			path: '/about',
 		},
 		{
 			title: '<Events />',
-			destination: '/events',
+			path: '/events',
 		},
 		{
 			title: '<Projects />',
-			destination: '/projects',
+			path: '/projects',
 		},
 		{
 			title: '<Contact Us />',
-			destination: '/contact',
+			path: '/contact',
 		},
 	];
 
@@ -47,17 +48,17 @@ export default function Menu({ isOpen, onClose }) {
 					opacity={0.85}
 					bgColor={theme.colors.pink.main}
 				>
-					{navigation.map(({ title, destination }) => {
+					{navigation.map(({ title, path }) => {
 						return (
 							<Box
 								as={Link}
-								to={destination}
+								to={path}
 								display='flex'
 								key={uniqid()}
 								flex={1}
 								alignItems='center'
 								bgColor={
-									activeText === title ? theme.colors.blue.main : 'transparent'
+									activePath === path ? theme.colors.blue.main : 'transparent'
 								}
 								onClick={() => {
 									setActiveText(title);
