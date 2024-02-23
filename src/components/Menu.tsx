@@ -1,21 +1,18 @@
-import { useRef, useState } from 'react';
+import { useState } from 'react';
 import {
-	useDisclosure,
 	Drawer,
 	DrawerOverlay,
 	DrawerContent,
 	Box,
 	Heading,
 } from '@chakra-ui/react';
-import Hamburger from 'hamburger-react';
 import uniqid from 'uniqid';
 import { theme } from '../main';
 import { Link } from 'react-router-dom';
 
-export default function Menu() {
-	const { isOpen, onOpen, onClose } = useDisclosure();
-	const btnRef = useRef(null);
-	const [activeText, setActiveText] = useState('');
+// @ts-expect-error - no ts types for these
+export default function Menu({ isOpen, onClose }) {
+	const [activeText, setActiveText] = useState('<Home />');
 	const navigation = [
 		{
 			title: '<Home />',
@@ -41,33 +38,7 @@ export default function Menu() {
 
 	return (
 		<>
-			<Box
-				zIndex={1401}
-				ref={btnRef}
-				backgroundColor='blue.800'
-				// rounded='16px'
-				boxShadow='0px 5px 0px 0px #1a202c'
-				position='relative'
-				_active={{
-					boxShadow: '0px 0px 0px 0px #1a202c',
-
-					top: '5px',
-				}}
-			>
-				<Hamburger
-					color='white'
-					// rounded
-					toggled={isOpen}
-					toggle={() => (isOpen ? onClose() : onOpen())}
-				/>
-			</Box>
-			<Drawer
-				isOpen={isOpen}
-				placement='right'
-				onClose={onClose}
-				finalFocusRef={btnRef}
-				size='full'
-			>
+			<Drawer isOpen={isOpen} onClose={onClose} placement='top' size='xs'>
 				<DrawerOverlay backdropFilter='blur(8px)' />
 				<DrawerContent
 					display='flex'
