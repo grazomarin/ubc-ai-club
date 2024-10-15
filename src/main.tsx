@@ -8,11 +8,10 @@ import {
 	Route,
 	RouterProvider,
 } from "react-router-dom";
-import About from "./pages/About";
-import Events from "./pages/Events";
 import Root from "./pages/Root";
 import "@fontsource/silkscreen";
 import "@fontsource-variable/jetbrains-mono";
+import About from "./pages/About";
 
 export const theme = {
 	sizes: {
@@ -78,7 +77,15 @@ const router = createHashRouter(
 			/>
 			<Route
 				path="/events"
-				Component={Events}
+				element={<div></div>}
+			/>
+			<Route
+				path="/projects"
+				element={<div></div>}
+			/>
+			<Route
+				path="/contact"
+				element={<div></div>}
 			/>
 		</Route>
 	)

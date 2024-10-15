@@ -30,11 +30,11 @@ export default function Navbar() {
 						ref={btnRef}
 						backgroundColor="purple.600"
 						// rounded='16px'
-						boxShadow="0px 5px 0px 0px black"
+						boxShadow="0px 5px 0px 0px var(--chakra-colors-purple-900)"
 						position="relative"
 						sx={{
 							"&:active": {
-								boxShadow: "0px 0px 0px 0px black",
+								boxShadow: "0px 0px 0px 0px var(--chakra-colors-purple-900)",
 								top: "5px",
 							},
 						}}
