@@ -26,3 +26,4 @@ package-lock.json
 .vite
 .vscode
 src/api/.secured.js
+.vercel

@@ -1,1 +1,1 @@
-# [LIVE PREVIEW](https://grazomarin.github.io/ubc-ai-club/)
+# [LIVE PREVIEW](https://ubc-ai-club.vercel.app)
