@@ -1,52 +1,56 @@
-import { Box, Heading, useDisclosure } from '@chakra-ui/react';
-import Menu from './Menu';
-import { theme } from '../main';
-import { useRef } from 'react';
-import Hamburger from 'hamburger-react';
+import { Box, Heading, useDisclosure } from "@chakra-ui/react";
+import Menu from "./Menu";
+import { useRef } from "react";
+import Hamburger from "hamburger-react";
 
 export default function Navbar() {
-	const { isOpen, onOpen, onClose } = useDisclosure();
+	const { isOpen, onToggle } = useDisclosure();
 	const btnRef = useRef(null);
 
 	return (
 		<>
 			<Box
-				display='flex'
-				justifyContent='space-between'
-				alignItems='center'
-				p='1.2rem'
-				position='fixed'
+				position="sticky"
+				top="0"
 				zIndex={1400}
-				width='100%'
-				height='70px'
-				backgroundImage={`radial-gradient(rgba(0,0,0,0) 1px, ${theme.colors.pink.main} 1px)`}
-				backgroundSize='4px 4px'
+				height="70px"
+				backgroundImage="radial-gradient(circle at center, #0000 1px, pink.500.100 1px)"
+				backgroundSize="4px 4px"
 			>
-				<Heading color='White' fontSize='2rem' fontFamily={theme.fonts.pixel}>
-					UBC AI CLUB
-				</Heading>
 				<Box
-					transform='scale(0.8)'
-					ref={btnRef}
-					backgroundColor='blue.800'
-					// rounded='16px'
-					boxShadow='0px 5px 0px 0px #1a202c'
-					position='relative'
-					_active={{
-						boxShadow: '0px 0px 0px 0px #1a202c',
-						top: '5px',
-					}}
+					display="flex"
+					justifyContent="space-between"
+					alignItems="center"
+					height="100%"
+					p="1.2rem"
 				>
-					<Hamburger
-						color='white'
-						toggled={isOpen}
-						toggle={() => (isOpen ? onClose() : onOpen())}
-					/>
+					<Heading color="white">UBC AI CLUB</Heading>
+					<Box
+						transform="scale(0.8)"
+						ref={btnRef}
+						backgroundColor="purple.600"
+						// rounded='16px'
+						boxShadow="0px 5px 0px 0px black"
+						position="relative"
+						sx={{
+							"&:active": {
+								boxShadow: "0px 0px 0px 0px black",
+								top: "5px",
+							},
+						}}
+						onClick={onToggle}
+					>
+						<Hamburger
+							color="white"
+							toggled={isOpen}
+						/>
+					</Box>
 				</Box>
+				<Menu
+					isOpen={isOpen}
+					onClose={onToggle}
+				/>
 			</Box>
-			<Box height='80px' p='1.2rem' />
-			{/* make menu slide from the top */}
-			<Menu isOpen={isOpen} onClose={onClose} />
 		</>
 	);
 }

@@ -1,14 +1,7 @@
-import { useState } from 'react';
-import {
-	Drawer,
-	DrawerOverlay,
-	DrawerContent,
-	Box,
-	Heading,
-} from '@chakra-ui/react';
-import uniqid from 'uniqid';
-import { theme } from '../main';
-import { Link, useLocation } from 'react-router-dom';
+import { useState } from "react";
+import { Box, Heading, Collapse } from "@chakra-ui/react";
+import uniqid from "uniqid";
+import { Link, useLocation } from "react-router-dom";
 
 // @ts-expect-error - no ts types for these
 export default function Menu({ isOpen, onClose }) {
@@ -16,68 +9,80 @@ export default function Menu({ isOpen, onClose }) {
 	const [activePath, setActiveText] = useState(pathname);
 	const navigation = [
 		{
-			title: '<Home />',
-			path: '/',
+			title: "<Home />",
+			path: "/",
 		},
 		{
-			title: '<About />',
-			path: '/about',
+			title: "<About />",
+			path: "/about",
 		},
 		{
-			title: '<Events />',
-			path: '/events',
+			title: "<Events />",
+			path: "/events",
 		},
 		{
-			title: '<Projects />',
-			path: '/projects',
+			title: "<Projects />",
+			path: "/projects",
 		},
 		{
-			title: '<Contact Us />',
-			path: '/contact',
+			title: "<Contact Us />",
+			path: "/contact",
 		},
 	];
 
 	return (
-		<>
-			<Drawer isOpen={isOpen} onClose={onClose} placement='top' size='xs'>
-				<DrawerOverlay backdropFilter='blur(8px)' />
-				<DrawerContent
-					display='flex'
-					flexFlow='column'
-					height='100%'
-					opacity={0.85}
-					bgColor={theme.colors.pink.main}
+		<Box
+			backgroundImage="radial-gradient(circle at center, #0000 1px, pink.500.100 1px)"
+			backgroundSize="4px 4px"
+			backdropFilter="blur(10px)"
+			top={{ base: "0", sm: "100%" }}
+			position="absolute"
+			width="100%"
+		>
+			<Collapse
+				in={isOpen}
+				animateOpacity
+				unmountOnExit
+			>
+				<Box
+					height={{ base: "100vh", sm: "auto" }}
+					display="grid"
+					gridAutoRows={{ base: "1fr", sm: "100px" }}
+					placeItems="center stretch"
 				>
 					{navigation.map(({ title, path }) => {
 						return (
 							<Box
+								position="relative"
+								height="100%"
+								width="100%"
+								display="flex"
+								alignItems="center"
 								as={Link}
 								to={path}
-								display='flex'
 								key={uniqid()}
-								flex={1}
-								alignItems='center'
-								bgColor={
-									activePath === path ? theme.colors.blue.main : 'transparent'
-								}
+								bgColor={activePath === path ? "blue.500.100" : "transparent"}
 								onClick={() => {
-									setActiveText(title);
+									setActiveText(path);
 									onClose();
+								}}
+								sx={{
+									"&:hover": {
+										bgColor: "blue.500.100",
+									},
 								}}
 							>
 								<Heading
-									color='white'
-									width='100%'
-									px='2rem'
-									fontFamily={theme.fonts.pixel}
+									color="white"
+									px="2rem"
 								>
 									{title}
 								</Heading>
 							</Box>
 						);
 					})}
-				</DrawerContent>
-			</Drawer>
-		</>
+				</Box>
+			</Collapse>
+		</Box>
 	);
 }
