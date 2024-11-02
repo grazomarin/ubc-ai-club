@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { Box, Heading, Collapse } from "@chakra-ui/react";
-import uniqid from "uniqid";
 import { Link, useLocation } from "react-router-dom";
 
 // @ts-expect-error - no ts types for these
@@ -60,7 +59,7 @@ export default function Menu({ isOpen, onClose }) {
 								alignItems="center"
 								as={Link}
 								to={path}
-								key={uniqid()}
+								key={title}
 								bgColor={activePath === path ? "blue.500.100" : "transparent"}
 								onClick={() => {
 									setActiveText(path);

@@ -5,6 +5,9 @@ import Navbar from "./components/Navbar";
 export default function App() {
 	return (
 		<Box
+			display="grid"
+			gridAutoFlow="row"
+			gridAutoRows="min-content 1fr"
 			bgColor="purple.900"
 			minH="100vh"
 			maxW="100vw"

@@ -12,18 +12,19 @@
 		"test": "vitest"
 	},
 	"dependencies": {
-		"@chakra-ui/react": "^2.8.2",
+		"@chakra-ui/react": "^2.10.3",
+		"@emotion/react": "^11.13.3",
+		"@emotion/styled": "^11.13.0",
 		"@fontsource-variable/jetbrains-mono": "^5.1.0",
 		"@fontsource/silkscreen": "^5.1.0",
 		"@types/react-router-dom": "^5.3.3",
-		"framer-motion": "^11.0.3",
+		"framer-motion": "^11.11.11",
 		"hamburger-react": "^2.5.0",
 		"react": "^18.2.0",
 		"react-chrono": "^2.4.2",
 		"react-dom": "^18.2.0",
-		"react-icons": "^5.0.1",
+		"react-icons": "^5.3.0",
 		"react-swipeable": "^7.0.1",
-		"uniqid": "^5.4.0",
 		"webfontloader": "^1.6.28"
 	},
 	"devDependencies": {
@@ -48,7 +49,7 @@
 		"localforage": "^1.10.0",
 		"match-sorter": "^6.3.3",
 		"react-router-dom": "^6.21.3",
-		"sort-by": "^1.2.0",
+		"sort-by": "^0.0.2",
 		"typescript": "^5.2.2",
 		"vite": "^5.0.8",
 		"vitest": "^1.2.1"

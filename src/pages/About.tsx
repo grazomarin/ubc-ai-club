@@ -1,14 +1,5 @@
 import { Box, Heading, Text, Grid, GridItem } from "@chakra-ui/react";
-import kamran from "/img/people/kamran.jpg";
-import alex from "/img/people/alex.jpg";
-import bradley from "/img/people/bradley.jpg";
-import hetav from "/img/people/hetav.jpg";
-import isha from "/img/people/isha.jpeg";
-import lia from "/img/people/lia.png";
-import oliver from "/img/people/oliver.jpg";
-import ryan from "/img/people/ryan.jpg";
-import vivian from "/img/people/vivian.png";
-import uniqid from "uniqid";
+import { lia, kamran, oliver, ryan, vivian, alex, bradley, isha, hetav } from "../index";
 
 export default function About() {
 	const team = [
@@ -103,7 +94,7 @@ export default function About() {
 					}}
 				>
 					{team.map(({ name, role, src }) => (
-						<GridItem key={uniqid()}>
+						<GridItem key={name}>
 							<Box
 								bgImg={src}
 								aspectRatio={1 / 1}

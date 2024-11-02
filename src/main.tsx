@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Suspense } from "react";
 import ReactDOM from "react-dom/client";
 import { ChakraProvider, extendTheme } from "@chakra-ui/react";
 import App from "./App";
@@ -11,7 +11,10 @@ import {
 import Root from "./pages/Root";
 import "@fontsource/silkscreen";
 import "@fontsource-variable/jetbrains-mono";
-import About from "./pages/About";
+import LoadingScreen from "./components/LoadingScreen";
+
+// import About from "./pages/About";
+const About = React.lazy(() => import("./pages/About"));
 
 export const theme = {
 	sizes: {
@@ -73,19 +76,23 @@ const router = createHashRouter(
 			/>
 			<Route
 				path="/about"
-				Component={About}
+				element={
+					<Suspense fallback={<LoadingScreen />}>
+						<About />
+					</Suspense>
+				}
 			/>
 			<Route
 				path="/events"
-				element={<div></div>}
+				element={<LoadingScreen />}
 			/>
 			<Route
 				path="/projects"
-				element={<div></div>}
+				element={<LoadingScreen />}
 			/>
 			<Route
 				path="/contact"
-				element={<div></div>}
+				element={<LoadingScreen />}
 			/>
 		</Route>
 	)
