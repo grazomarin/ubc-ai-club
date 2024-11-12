@@ -1,5 +1,6 @@
-import { Box, Heading, Text, Grid, GridItem } from "@chakra-ui/react";
+import { Heading, Text, Grid } from "@chakra-ui/react";
 import { lia, kamran, oliver, ryan, vivian, alex, bradley, isha, hetav } from "../index";
+import ContentImage from "../components/ContentImage";
 
 export default function About() {
 	const team = [
@@ -90,56 +91,18 @@ export default function About() {
 				<Grid
 					gridTemplateColumns={{
 						base: "repeat(auto-fill, minmax(250px, 1fr))",
-						lg: "repeat(auto-fill, minmax(380px, 1fr))",
+						lg: "repeat(auto-fill, minmax(320px, 1fr))",
 					}}
 				>
 					{team.map(({ name, role, src }) => (
-						<GridItem key={name}>
-							<Box
-								bgImg={src}
-								aspectRatio={1 / 1}
-								objectFit="cover"
-								bgPos="center"
-								bgSize="cover"
-								bgRepeat="no-repeat"
-								position="relative"
-								sx={{
-									"&::after": {
-										content: "''",
-										position: "absolute",
-										height: "100%",
-										width: "100%",
-										top: 0,
-										left: 0,
-										boxShadow: "inset 0px -120px 110px 0px var(--chakra-colors-purple-900)",
-										opacity: 0,
-										transition: "opacity 0.3s ease-in-out",
-									},
-									"&:hover::after": {
-										opacity: 1,
-									},
-									"& .content": {
-										opacity: 0,
-										transition: "opacity 0.3s ease-in-out",
-									},
-									"&:hover .content": {
-										opacity: 1,
-									},
-								}}
-								display="flex"
-								flexFlow="column"
-								justifyContent="end"
-								p="1rem"
-							>
-								<Box
-									className="content"
-									zIndex={2}
-								>
-									<Heading width="min-content">{name}</Heading>
-									<Text>{role}</Text>
-								</Box>
-							</Box>
-						</GridItem>
+						<ContentImage
+							src={src}
+							key={name}
+							showContentOnHover={window.innerWidth > 768}
+						>
+							<ContentImage.Heading text={name} />
+							<ContentImage.Text text={role} />
+						</ContentImage>
 					))}
 				</Grid>
 			</Grid>

@@ -27,3 +27,4 @@ package-lock.json
 .vscode
 src/api/.secured.js
 .vercel
+.env
