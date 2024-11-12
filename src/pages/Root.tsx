@@ -1,5 +1,6 @@
-import { AspectRatio, Box, Grid, GridItem } from "@chakra-ui/react";
+import { AspectRatio, Box, Grid, GridItem, Heading } from "@chakra-ui/react";
 import Content from "../components/Content";
+import InstagramContent from "../components/InstagramContent";
 
 export default function Root() {
 	return (
@@ -12,7 +13,7 @@ export default function Root() {
 				py="2em"
 			>
 				<Grid
-					gridGap="1.5em"
+					gap="1.5em"
 					placeItems={{ base: "center", sm: "center" }}
 					gridTemplateRows={{ base: "1fr min-content", sm: "1fr" }}
 					gridTemplateColumns={{ base: "", sm: "1fr 2fr" }}
@@ -51,6 +52,7 @@ export default function Root() {
 			</Box>
 
 			<Content />
+			<InstagramContent />
 		</Grid>
 	);
 }

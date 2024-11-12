@@ -12,6 +12,7 @@ import Root from "./pages/Root";
 import "@fontsource/silkscreen";
 import "@fontsource-variable/jetbrains-mono";
 import LoadingScreen from "./components/LoadingScreen";
+import { InstagramProvider } from "./contexts/InstagramContext";
 
 // import About from "./pages/About";
 const About = React.lazy(() => import("./pages/About"));
@@ -106,7 +107,9 @@ root.render(
 			resetCSS={true}
 			theme={chakraTheme}
 		>
-			<RouterProvider router={router} />
+			<InstagramProvider>
+				<RouterProvider router={router} />
+			</InstagramProvider>
 		</ChakraProvider>
 	</React.StrictMode>
 );
