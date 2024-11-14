@@ -59,12 +59,7 @@ export default function About() {
 			py="2em"
 		>
 			<Grid gap="2em">
-				<Heading
-					textAlign="center"
-					size="2xl"
-				>
-					About Us
-				</Heading>
+				<Heading>About Us</Heading>
 
 				<Text>
 					The purpose of AMS AI Club at UBC is to teach students from all backgrounds how to use AI
@@ -81,12 +76,7 @@ export default function About() {
 			</Grid>
 
 			<Grid gap="2em">
-				<Heading
-					textAlign="center"
-					size="2xl"
-				>
-					Meet The Team
-				</Heading>
+				<Heading>Meet The Team</Heading>
 
 				<Grid
 					gridTemplateColumns={{

@@ -8,12 +8,13 @@ import {
 	Route,
 	RouterProvider,
 } from "react-router-dom";
-import Root from "./pages/Root";
 import "@fontsource/silkscreen";
 import "@fontsource-variable/jetbrains-mono";
 import LoadingScreen from "./components/LoadingScreen";
 import { InstagramProvider } from "./contexts/InstagramContext";
 
+import Root from "./pages/Root";
+import Events from "./pages/Events";
 // import About from "./pages/About";
 const About = React.lazy(() => import("./pages/About"));
 
@@ -85,7 +86,7 @@ const router = createHashRouter(
 			/>
 			<Route
 				path="/events"
-				element={<LoadingScreen />}
+				element={<Events />}
 			/>
 			<Route
 				path="/projects"

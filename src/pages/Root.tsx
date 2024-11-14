@@ -1,6 +1,5 @@
-import { AspectRatio, Box, Grid, GridItem, Heading } from "@chakra-ui/react";
+import { AspectRatio, Box, Grid, GridItem } from "@chakra-ui/react";
 import Content from "../components/Content";
-import InstagramContent from "../components/InstagramContent";
 
 export default function Root() {
 	return (
@@ -52,7 +51,6 @@ export default function Root() {
 			</Box>
 
 			<Content />
-			<InstagramContent />
 		</Grid>
 	);
 }
