@@ -28,11 +28,6 @@ export function InstagramProvider({ children }: { children: React.ReactNode }) {
 				}
 
 				let data = await response.json();
-				let screenwidth = window.innerWidth;
-				screenwidth < 480
-					? (data.data = data.data.slice(0, 3))
-					: (data.data = data.data.slice(0, 9));
-
 				setInstagramData(data.data || []);
 			} catch (error) {
 				console.error("Error fetching Instagram data:", error);
