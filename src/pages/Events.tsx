@@ -6,7 +6,7 @@ export default function Events() {
 		<Grid
 			gap="4em"
 			color="white"
-			px="1.5em"
+			px={{ base: "1.5em", md: "3em" }}
 			py="2em"
 		>
 			<InstagramContent />

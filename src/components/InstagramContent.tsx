@@ -7,7 +7,6 @@ export default function InstagramContent() {
 
 	return (
 		<Grid
-			px="1.5em"
 			paddingBottom="2em"
 			gap="1.5em"
 		>

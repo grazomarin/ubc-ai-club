@@ -184,8 +184,9 @@ export default function Root() {
 						{ source: instagram, link: "https://www.instagram.com/ubcaiclub/" },
 						{ source: discord, link: "https://discord.gg/Avp2Ssdah2" },
 						{ source: linkedin, link: "https://www.linkedin.com/company/ubc-ai-club/" },
-					].map(({ source, link }) => (
+					].map(({ source, link }, index) => (
 						<Image
+							key={index}
 							src={source}
 							onClick={() => window.open(link)}
 							_hover={{

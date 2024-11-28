@@ -55,29 +55,88 @@ export default function About() {
 		<Grid
 			gap="4em"
 			color="white"
-			px="1.5em"
+			px={{ base: "1.5em", md: "3em" }}
 			py="2em"
 		>
 			<Grid gap="2em">
-				<Heading>About Us</Heading>
+				<Heading>Who are we?</Heading>
 
 				<Text>
-					The purpose of AMS AI Club at UBC is to teach students from all backgrounds how to use AI
-					to leverage their degrees and become proficient in AI use. As AI continues to advance we
-					want our club members to stay ahead of the curve and be confident in their future. That's
-					why we aim to provide bi weekly meetings that involve workshops and discussions on AI
-					developments. Our workshops are designed to give students the tools to build their own
-					projects using AI. These projects can be showcased at the end of the term and will be a
-					great addition to anyone's resume. On top of the workshops, we will also have speakers who
-					work and engage with AI so our members will be able to ask questions and learn from
-					industry professionals. By joining our club you will have an amazing opportunity to
-					network, build AI proficiency and stay the most up to date with AI advancements.
+					At UBC AI, we strive to make UBC a leading hub for AI innovation and education in Canada.
+					Our mission is to foster groundbreaking AI projects, democratize AI knowledge for all
+					students, and build meaningful partnerships with student groups, industry leaders, and
+					academic advisors. Through high-quality workshops, speaker events, and collaborations, we
+					provide hands-on opportunities and cutting-edge insights, empowering students to
+					confidently explore and innovate with AI. With a focus on impactful projects and strategic
+					collaborations—like our partnership with BOLT—we are shaping a vibrant AI ecosystem that
+					drives positive social and economic change while making AI accessible to everyone.
 				</Text>
+			</Grid>
+			<Grid gap="2em">
+				<Heading>What We Do?</Heading>
+
+				<Grid gap="0.5em">
+					<Heading size="lg">Learn AI, One Step at a Time</Heading>
+					{[
+						{
+							bold: "AI for Beginners: ",
+							body: "Discover the fundamentals of AI through beginner-friendly sessions. Gain a roadmap to navigate this fascinating field and build confidence with no prior experience required.",
+						},
+						{
+							bold: "AI for Software Developers: ",
+							body: "Bridge the gap between coding and AI by learning how to integrate AI tools and techniques into your development projects.",
+						},
+						{
+							bold: "Hands-On Skill Building: ",
+							body: "Participate in practical workshops that empower you to tackle real-world AI challenges.",
+						},
+					].map(({ bold, body }, index) => (
+						<Text
+							key={index}
+							position="relative"
+							_before={{
+								position: "absolute",
+								left: "-1em",
+								content: "'-'",
+								color: "pink.500.100",
+								marginRight: "0.5em",
+							}}
+						>
+							<strong>{bold}</strong>
+							{body}
+						</Text>
+					))}
+				</Grid>
+			</Grid>
+			<Grid gap="2em">
+				<Heading>Workshops</Heading>
+
+				<Grid gap="0.5em">
+					<Heading size="lg">Learn AI, One Step at a Time</Heading>
+					{[
+						{
+							bold: "AI for Beginners: ",
+							body: "Discover the fundamentals of AI through beginner-friendly sessions. Gain a roadmap to navigate this fascinating field and build confidence with no prior experience required.",
+						},
+						{
+							bold: "AI for Software Developers: ",
+							body: "Bridge the gap between coding and AI by learning how to integrate AI tools and techniques into your development projects.",
+						},
+						{
+							bold: "Hands-On Skill Building: ",
+							body: "Participate in practical workshops that empower you to tackle real-world AI challenges.",
+						},
+					].map(({ bold, body }, index) => (
+						<Text key={index}>
+							<strong>{bold}</strong>
+							{body}
+						</Text>
+					))}
+				</Grid>
 			</Grid>
 
 			<Grid gap="2em">
 				<Heading>Meet The Team</Heading>
-
 				<Grid
 					gridTemplateColumns={{
 						base: "repeat(auto-fill, minmax(250px, 1fr))",
