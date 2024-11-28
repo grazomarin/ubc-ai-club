@@ -1,5 +1,6 @@
-import { AspectRatio, Box, Flex, Grid, GridItem, Heading, Link, Text } from "@chakra-ui/react";
+import { AspectRatio, Box, Flex, Grid, GridItem, Heading, Image, Text } from "@chakra-ui/react";
 import SlidingContent from "../components/SlidingContent";
+import { instagram, linkedin, discord } from "../index";
 
 const content = [
 	{
@@ -79,21 +80,24 @@ export default function Root() {
 						<Grid gap="1.5rem">
 							<Heading>Your Edge for a Future-Ready Tomorrow</Heading>
 							<Grid
-								as={Link}
-								href="https://docs.google.com/forms/d/e/1FAIpQLSdG92ZgK0fgI1mhbIu8QI703t5V37xiIMq_9NRemJyGRZt8Ug/viewform?usp=pp_url"
-								isExternal
-								bgColor="purple.600"
-								color="white"
+								onClick={() =>
+									window.open(
+										"https://docs.google.com/forms/d/e/1FAIpQLSdG92ZgK0fgI1mhbIu8QI703t5V37xiIMq_9NRemJyGRZt8Ug/viewform?usp=pp_url"
+									)
+								}
+								placeItems="center"
 								width={{ base: "100%", md: "300px" }}
 								p="1em"
-								placeItems="center"
+								bgColor="purple.600"
 								position="relative"
+								transition="none"
 								boxShadow="-5px 5px var(--chakra-colors-purple-400)"
 								_hover={{
 									top: "2px",
 									left: "-2px",
 									boxShadow: "-3px 3px var(--chakra-colors-purple-400)",
 									textDecoration: "none",
+									cursor: "pointer",
 								}}
 								_active={{
 									"&:active": {
@@ -129,9 +133,11 @@ export default function Root() {
 					</Text>
 				</Grid>
 				<Grid
-					as={Link}
-					href="https://docs.google.com/forms/d/e/1FAIpQLSdG92ZgK0fgI1mhbIu8QI703t5V37xiIMq_9NRemJyGRZt8Ug/viewform?usp=pp_url"
-					isExternal
+					onClick={() =>
+						window.open(
+							"https://docs.google.com/forms/d/e/1FAIpQLSdG92ZgK0fgI1mhbIu8QI703t5V37xiIMq_9NRemJyGRZt8Ug/viewform?usp=pp_url"
+						)
+					}
 					placeItems="center"
 					px="1.5em"
 					py="1em"
@@ -149,6 +155,7 @@ export default function Root() {
 						},
 						"borderStyle": "solid",
 						"backgroundColor": "pink.500.100",
+						"cursor": "pointer",
 					}}
 				>
 					<Heading
@@ -168,7 +175,25 @@ export default function Root() {
 					</Heading>
 				</Grid>
 
-				<Flex></Flex>
+				<Flex
+					height="48px"
+					gap="1em"
+					justifyContent="center"
+				>
+					{[
+						{ source: instagram, link: "https://www.instagram.com/ubcaiclub/" },
+						{ source: discord, link: "https://discord.gg/Avp2Ssdah2" },
+						{ source: linkedin, link: "https://www.linkedin.com/company/ubc-ai-club/" },
+					].map(({ source, link }) => (
+						<Image
+							src={source}
+							onClick={() => window.open(link)}
+							_hover={{
+								cursor: "pointer",
+							}}
+						/>
+					))}
+				</Flex>
 			</Grid>
 		</Grid>
 	);
