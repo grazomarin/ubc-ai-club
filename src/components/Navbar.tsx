@@ -29,14 +29,11 @@ export default function Navbar() {
 						transform="scale(0.8)"
 						ref={btnRef}
 						backgroundColor="purple.600"
-						// rounded='16px'
 						boxShadow="0px 5px 0px 0px var(--chakra-colors-purple-900)"
 						position="relative"
-						sx={{
-							"&:active": {
-								boxShadow: "0px 0px 0px 0px var(--chakra-colors-purple-900)",
-								top: "5px",
-							},
+						_active={{
+							boxShadow: "0px 0px 0px 0px var(--chakra-colors-purple-900)",
+							top: "5px",
 						}}
 						onClick={onToggle}
 					>
