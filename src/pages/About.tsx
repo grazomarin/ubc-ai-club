@@ -58,7 +58,7 @@ export default function About() {
 			px={{ base: "1.5em", md: "3em" }}
 			py="2em"
 		>
-			<Grid gap="2em">
+			<Grid gap="1.5em">
 				<Heading>Who are we?</Heading>
 
 				<Text>
@@ -72,7 +72,7 @@ export default function About() {
 					drives positive social and economic change while making AI accessible to everyone.
 				</Text>
 			</Grid>
-			<Grid gap="2em">
+			<Grid gap="1.5em">
 				<Heading>What We Do?</Heading>
 
 				<Grid gap="0.5em">
@@ -108,7 +108,7 @@ export default function About() {
 					))}
 				</Grid>
 			</Grid>
-			<Grid gap="2em">
+			<Grid gap="1.5em">
 				<Heading>Workshops</Heading>
 
 				<Grid gap="0.5em">
@@ -135,7 +135,7 @@ export default function About() {
 				</Grid>
 			</Grid>
 
-			<Grid gap="2em">
+			<Grid gap="1.5em">
 				<Heading>Meet The Team</Heading>
 				<Grid
 					gridTemplateColumns={{

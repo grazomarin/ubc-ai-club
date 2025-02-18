@@ -1,4 +1,14 @@
-import { AspectRatio, Box, Flex, Grid, GridItem, Heading, Image, Text } from "@chakra-ui/react";
+import {
+	AspectRatio,
+	Box,
+	Flex,
+	Grid,
+	GridItem,
+	Heading,
+	Image,
+	Text,
+	useStyleConfig,
+} from "@chakra-ui/react";
 import SlidingContent from "../components/SlidingContent";
 import { instagram, linkedin, discord } from "../index";
 
@@ -44,6 +54,8 @@ const content = [
 ];
 
 export default function Root() {
+	const boxButtonStyle = useStyleConfig("BoxButton", { variant: "3d" });
+
 	return (
 		<Grid
 			gap="1.5em"
@@ -79,37 +91,16 @@ export default function Root() {
 					<GridItem area={"signup"}>
 						<Grid gap="1.5rem">
 							<Heading>Your Edge for a Future-Ready Tomorrow</Heading>
-							<Grid
+							<Box
 								onClick={() =>
 									window.open(
 										"https://docs.google.com/forms/d/e/1FAIpQLSdG92ZgK0fgI1mhbIu8QI703t5V37xiIMq_9NRemJyGRZt8Ug/viewform?usp=pp_url"
 									)
 								}
-								placeItems="center"
-								width={{ base: "100%", md: "300px" }}
-								p="1em"
-								bgColor="purple.600"
-								position="relative"
-								transition="none"
-								boxShadow="-5px 5px var(--chakra-colors-purple-400)"
-								_hover={{
-									top: "2px",
-									left: "-2px",
-									boxShadow: "-3px 3px var(--chakra-colors-purple-400)",
-									textDecoration: "none",
-									cursor: "pointer",
-								}}
-								_active={{
-									"&:active": {
-										top: "10px",
-										left: "-10px",
-										boxShadow:
-											"inset -5px 5px var(--chakra-colors-purple-800), inset 5px -5px var(--chakra-colors-purple-900)",
-									},
-								}}
+								__css={boxButtonStyle}
 							>
 								<Heading>Join Us</Heading>
-							</Grid>
+							</Box>
 						</Grid>
 					</GridItem>
 				</Grid>

@@ -1,6 +1,6 @@
 import React, { Suspense } from "react";
 import ReactDOM from "react-dom/client";
-import { ChakraProvider, extendTheme } from "@chakra-ui/react";
+import { ChakraProvider, defineStyleConfig, extendTheme } from "@chakra-ui/react";
 import App from "./App";
 import {
 	createHashRouter,
@@ -18,18 +18,37 @@ import Events from "./pages/Events";
 // import About from "./pages/About";
 const About = React.lazy(() => import("./pages/About"));
 
-export const theme = {
-	sizes: {
-		default: "2rem",
+const BoxButton = defineStyleConfig({
+	variants: {
+		"3d": {
+			placeItems: "center",
+			width: "auto",
+			p: "1em",
+			bgColor: "purple.600",
+			position: "relative",
+			transition: "none",
+			boxShadow: "-5px 5px var(--chakra-colors-purple-400)",
+			_hover: {
+				top: "2px",
+				left: "-2px",
+				boxShadow: "-3px 3px var(--chakra-colors-purple-400)",
+				textDecoration: "none",
+				cursor: "pointer",
+			},
+			_active: {
+				"&:active": {
+					top: "10px",
+					left: "-10px",
+					boxShadow:
+						"inset -5px 5px var(--chakra-colors-purple-800), inset 5px -5px var(--chakra-colors-purple-900)",
 	},
-	radius: {
-		xl: "20px",
-		l: "18px",
-		m: "16px",
-		s: "14px",
-		xs: "12px",
+			},
+		},
 	},
-};
+	defaultProps: {
+		variant: "3d",
+	},
+});
 
 const chakraTheme = extendTheme({
 	fonts: {
@@ -54,6 +73,7 @@ const chakraTheme = extendTheme({
 		},
 	},
 	components: {
+		BoxButton,
 		Text: {
 			baseStyle: {
 				fontSize: {
