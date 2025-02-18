@@ -1,19 +1,26 @@
 // InstagramContext.jsx
 import { createContext, useState, useContext, useEffect } from "react";
 
-const InstagramContext = createContext([]);
+export type InstagramData = {
+	id: string;
+	media_url: string;
+	permalink: string;
+	thumbnail_url: string;
+	caption: string;
+};
+
+const InstagramContext = createContext<InstagramData[]>([]);
 
 export function InstagramProvider({ children }: { children: React.ReactNode }) {
-	const [instagramData, setInstagramData] = useState([]);
+	const [instagramData, setInstagramData] = useState<InstagramData[]>([]);
 
 	useEffect(() => {
 		const fetchInstagram = async () => {
-			if (instagramData.length > 0) return; // Prevent duplicate fetches
+			if (instagramData.length > 0) return; // Prevent duplicate fetches on navigation
 
-			console.log("Fetching Instagram data...");
 			try {
 				const response = await fetch(
-					"https://graph.instagram.com/me/media?fields=id,caption,media_url,permalink,thumbnail_url&access_token=" +
+					"https://graph.instagram.com/v22.0/me/media?fields=id,caption,media_url,permalink,thumbnail_url&access_token=" +
 						import.meta.env.VITE_INSTAGRAM_ACCESS_TOKEN,
 					{
 						method: "GET",
