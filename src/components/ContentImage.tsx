@@ -11,10 +11,10 @@ export default function ContentImage({
 }) {
 	return (
 		<Box
-			bgImg={src}
-			aspectRatio={1}
+			backgroundImage={src}
 			bgSize="cover"
 			position="relative"
+			aspectRatio={1}
 			sx={{
 				"&::after": {
 					content: "''",
@@ -55,14 +55,8 @@ export default function ContentImage({
 
 ContentImage.Text = ({ text }: { text: string }) => (
 	<Text
-		width="100%"
-		display="-webkit-box"
-		overflow="hidden"
-		textOverflow="ellipsis"
-		sx={{
-			WebkitLineClamp: 3, // Limits to 3 lines
-			WebkitBoxOrient: "vertical", // Ensures it works with the line clamp
-		}}
+		wordBreak="break-word"
+		noOfLines={3}
 	>
 		{text}
 	</Text>
