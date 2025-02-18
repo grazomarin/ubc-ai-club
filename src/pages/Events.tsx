@@ -1,10 +1,10 @@
 import { Grid } from "@chakra-ui/react";
 import InstagramContent from "../components/InstagramContent";
 import UpcomingEvents from "../components/UpcomingEvents";
-import { useInstagram } from "../contexts/InstagramContext";
+import { useInstagramContent } from "../contexts/InstagramContext";
 
 export default function Events() {
-	const instagramData = useInstagram();
+	const instagramData = useInstagramContent();
 
 	return (
 		<Grid

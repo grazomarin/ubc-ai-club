@@ -1,5 +1,5 @@
-// InstagramContext.jsx
-import { createContext, useState, useContext, useEffect } from "react";
+import { createContext, useContext } from "react";
+import { wrapPromise } from "../util/util";
 
 export type InstagramData = {
 	id: string;
@@ -9,42 +9,35 @@ export type InstagramData = {
 	caption: string;
 };
 
-const InstagramContext = createContext<InstagramData[]>([]);
+const instagramContent = wrapPromise<InstagramData[]>(
+	fetch(
+		"https://graph.instagram.com/v22.0/me/media?fields=id,caption,media_url,permalink,thumbnail_url&access_token=" +
+			import.meta.env.VITE_INSTAGRAM_ACCESS_TOKEN,
+		{
+			method: "GET",
+			headers: {
+				Accept: "application/json",
+			},
+		}
+	)
+		.then((response) => {
+			if (!response.ok) {
+				throw new Error(`HTTP error! status: ${response.status}`);
+			}
+			return response.json();
+		})
+		.then((data) => data.data || [])
+);
+
+const InstagramContext = createContext<{
+	read: () => InstagramData[];
+}>(instagramContent);
 
 export function InstagramProvider({ children }: { children: React.ReactNode }) {
-	const [instagramData, setInstagramData] = useState<InstagramData[]>([]);
-
-	useEffect(() => {
-		const fetchInstagram = async () => {
-			if (instagramData.length > 0) return; // Prevent duplicate fetches on navigation
-
-			try {
-				const response = await fetch(
-					"https://graph.instagram.com/v22.0/me/media?fields=id,caption,media_url,permalink,thumbnail_url&access_token=" +
-						import.meta.env.VITE_INSTAGRAM_ACCESS_TOKEN,
-					{
-						method: "GET",
-						headers: {
-							Accept: "application/json",
-						},
-					}
-				);
-
-				if (!response.ok) {
-					throw new Error(`HTTP error! status: ${response.status}`);
-				}
-
-				let data = await response.json();
-				setInstagramData(data.data || []);
-			} catch (error) {
-				console.error("Error fetching Instagram data:", error);
-			}
-		};
-
-		fetchInstagram();
-	}, []);
-
-	return <InstagramContext.Provider value={instagramData}>{children}</InstagramContext.Provider>;
+	return <InstagramContext.Provider value={instagramContent}>{children}</InstagramContext.Provider>;
 }
 
-export const useInstagram = () => useContext(InstagramContext);
+export const useInstagramContent = () => {
+	const resource = useContext(InstagramContext);
+	return resource.read(); // This will throw the promise if data isn't ready.
+};

@@ -14,8 +14,9 @@ import LoadingScreen from "./components/LoadingScreen";
 import { InstagramProvider } from "./contexts/InstagramContext";
 
 import Root from "./pages/Root";
-import Events from "./pages/Events";
+// import Events from "./pages/Events";
 // import About from "./pages/About";
+const Events = React.lazy(() => import("./pages/Events"));
 const About = React.lazy(() => import("./pages/About"));
 
 const BoxButton = defineStyleConfig({
@@ -41,7 +42,7 @@ const BoxButton = defineStyleConfig({
 					left: "-10px",
 					boxShadow:
 						"inset -5px 5px var(--chakra-colors-purple-800), inset 5px -5px var(--chakra-colors-purple-900)",
-	},
+				},
 			},
 		},
 	},
@@ -106,7 +107,11 @@ const router = createHashRouter(
 			/>
 			<Route
 				path="/events"
-				element={<Events />}
+				element={
+					<Suspense fallback={<LoadingScreen />}>
+						<Events />
+					</Suspense>
+				}
 			/>
 			<Route
 				path="/projects"
