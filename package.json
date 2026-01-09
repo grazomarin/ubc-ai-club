@@ -48,7 +48,7 @@
 		"jsdom": "^24.0.0",
 		"localforage": "^1.10.0",
 		"match-sorter": "^6.3.3",
-		"react-router-dom": "^6.21.3",
+		"react-router-dom": "^6.30.3",
 		"sort-by": "^0.0.2",
 		"typescript": "^5.2.2",
 		"vite": "^5.0.8",
